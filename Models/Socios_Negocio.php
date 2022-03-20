@@ -21,7 +21,7 @@
         }
  
         public function insert_socio($nombre, $razon_social, $direccion , $tipo_socio, $contacto, $email, $fecha_creado, $estado, $telefono){
-        $conectar= parent::conexion();
+        $conectar= parent::Conexion();
         parent::set_names();
         $sql="INSERT INTO ma_socios_negocio (ID, NOMBRE, RAZON_SOCIAL, DIRECCION, TIPO_SOCIO, CONTACTO, EMAIL, FECHA_CREADO, ESTADO, TELEFONO)
         VALUES (NULL,?,?,?,?,?,?,?,?,?);";
@@ -40,7 +40,7 @@
         }
 
         public function update_socio($id, $nombre, $razon_social, $direccion , $tipo_socio, $contacto, $email, $fecha_creado, $estado, $telefono){
-            $conectar=parent::conexion();
+            $conectar=parent::Conexion();
             parent::set_names();
             $sql="UPDATE ma_socios_negocio SET ID=?, NOMBRE=?, RAZON_SOCIAL=?, DIRECCION=?, TIPO_SOCIO=?, CONTACTO=?, EMAIL=?, FECHA_CREADO=?, ESTADO=?, TELEFONO=? WHERE ID=?";
             $sql=$conectar->prepare($sql);
@@ -58,7 +58,7 @@
             return $resultado=$sql->fetchALL(PDO::FETCH_ASSOC);
         }
         public function delete_socio($id){
-            $conectar = parent::conexion();
+            $conectar = parent::Conexion();
             parent::set_names();
             $sql="DELETE FROM ma_socios_negocio WHERE ID=?";
             $sql=$conectar->prepare($sql);
