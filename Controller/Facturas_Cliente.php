@@ -12,7 +12,7 @@
     header('Content-Type: application/json');
 
     require_once("../config/conexion.php");
-    require_once("../models/facturas_clientes.php");
+    require_once("../models/factura_clientes.php");
     $facturas = new Facturas();
 
     $body = json_decode(file_get_contents("php://input"), true);
@@ -34,15 +34,9 @@
               echo json_encode("Factura de Cliente Agregado");
          break;
 
-         case "updateFactura":
-             $datos=$facturas->Update_Facturas($body["ID"],$body["NUMERO_FACTURA"],$body["ID_SOCIO"],$body["FECHA_FACTURA"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body["FECHA_VENCIMIENTO"],$body["ESTADO"]);
-             echo json_encode("Factura de Cliente Actualizado");
-         break;
-
-         case "Deletefactura":
-          $datos=$facturas->Delete_Factura($body["ID"]);
-          echo json_encode("Factura de Cliente eliminado exitosamente");
-          break;
+        case "UpdateFactura":
+            $datos=$facturas->Update_Facturas($body["ID"],$body["ID_SOCIO"],$body["FECHA_FACTURA"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body[" FECHA_VENCIMIENTO"],$body["ESTADO"]);
+            echo json_encode("Factura de Cliente Actualizado");
+        break;
     }
 ?>
-    

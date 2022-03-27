@@ -29,18 +29,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     break;
 
     case "InsertMaterial":
-        $datos=$material->insert_material($body["DESCRIPCION"], $body["UNIDAD"],$body["COSTO"],$body["PRECIO"],$body["APLICA_ISV"],$body["PORCENTAJE_ISV"],$body["ESTADO"],$body["ID_SOCIO"]);
-        echo json_encode("material agregado exitosamente");
+        $datos=$material->insert_material($body["DESCRIPCION"],$body["UNIDAD"],$body["COSTO"],$body["PRECIO"],$body["APLICA_ISV"],$body["PORCENTAJE_ISV"],$body["ESTADO"],$body["ID_SOCIO"]);
+        echo json_encode("Material agregado exitosamente");
     break;
 
     case "UpdateMaterial":
         $datos=$material->update_material($body["DESCRIPCION"],$body["UNIDAD"],$body["COSTO"],$body["PRECIO"],$body["APLICA_ISV"],$body["PORCENTAJE_ISV"],$body["ESTADO"],$body["ID_SOCIO"],$body["ID"]);
-        echo json_encode("material actualizado exitosamente");
+        echo json_encode("Material actualizado exitosamente");
     break;
 
     case "DeleteMaterial":
     $datos=$material->delete_material($body["ID"]);
-    echo json_encode("material eliminado exitosamente");
+    echo json_encode("Material eliminado exitosamente");
     break;
 }
 ?>

@@ -23,7 +23,7 @@
         }
 
         public function insert_material($DESCRIPCION, $UNIDAD, $COSTO, $PRECIO, $APLICA_ISV, $PORCENTAJE_ISV, $ESTADO, $ID_SOCIO){  
-            $conectar=parent::conexion();
+            $conectar=parent::conexion(); 
             parent::set_names();
             $sql="INSERT INTO ma_materiales (ID, DESCRIPCION, UNIDAD, COSTO, PRECIO, APLICA_ISV, PORCENTAJE_ISV, ESTADO, ID_SOCIO)
             VALUES(NULL,?,?,?,?,?,?,?,?);";

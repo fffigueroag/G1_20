@@ -42,7 +42,7 @@
         public function update_socio($id, $nombre, $razon_social, $direccion , $tipo_socio, $contacto, $email, $fecha_creado, $estado, $telefono){
             $conectar=parent::Conexion();
             parent::set_names();
-            $sql="UPDATE ma_socios_negocio SET ID=?, NOMBRE=?, RAZON_SOCIAL=?, DIRECCION=?, TIPO_SOCIO=?, CONTACTO=?, EMAIL=?, FECHA_CREADO=?, ESTADO=?, TELEFONO=? WHERE ID=?";
+            $sql="UPDATE ma_socios_negocio SET ID=?,NOMBRE=?,RAZON_SOCIAL=?,DIRECCION=?,TIPO_SOCIO=?,CONTACTO=?,EMAIL=?,FECHA_CREADO=?,ESTADO=?,TELEFONO=? WHERE ID=?";
             $sql=$conectar->prepare($sql);
             $sql->bindvalue(1, $id);
             $sql->bindvalue(2, $nombre);
