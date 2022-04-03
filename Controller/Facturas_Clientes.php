@@ -12,7 +12,7 @@
     header('Content-Type: application/json');
 
     require_once("../config/conexion.php");
-    require_once("../models/factura_clientes.php");
+    require_once("../models/facturas_clientes.php");
     $facturas = new Facturas();
 
     $body = json_decode(file_get_contents("php://input"), true);
@@ -22,21 +22,27 @@
          case "Getfacturas":
               $datos=$facturas-> get_facturas();
               echo json_encode($datos);
-         break;
+          break;
     
          case "GetFacturacliente":
               $datos=$facturas->get_Factura_cliente($body["ID"]);
               echo json_encode($datos);
-         break;
+          break;
     
          case "InsertFactura":
-              $datos=$facturas->Insert_Facturas($body["NUMERO_FACTURA"],$body["ID_SOCIO"],$body["FECHA_FACTURA"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body[" FECHA_VENCIMIENTO"],$body["ESTADO"]);
+              $datos=$facturas->Insert_Facturas($body["NUMERO_FACTURA"],$body["ID_SOCIO"],$body["FECHA_FACTURA"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body["FECHA_VENCIMIENTO"],$body["ESTADO"]);
               echo json_encode("Factura de Cliente Agregado");
-         break;
+          break;
 
-        case "UpdateFactura":
-            $datos=$facturas->Update_Facturas($body["ID"],$body["ID_SOCIO"],$body["FECHA_FACTURA"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body[" FECHA_VENCIMIENTO"],$body["ESTADO"]);
-            echo json_encode("Factura de Cliente Actualizado");
-        break;
+         case "UpdateFactura":
+             $datos=$facturas->Update_Facturas($body["NUMERO_FACTURA"],$body["ID_SOCIO"],$body["FECHA_FACTURA"],$body["DETALLE"],$body["SUB_TOTAL"],$body["TOTAL_ISV"],$body["TOTAL"],$body["FECHA_VENCIMIENTO"],$body["ESTADO"],$body["ID"]);
+             echo json_encode("Factura de Cliente Actualizado");
+          break;
+
+          case "Deletefactura":
+             $datos=$facturas->Delete_Factura($body["ID"]);
+             echo json_encode("Factura de Cliente eliminado exitosamente");
+          break;
     }
 ?>
+    

@@ -33,10 +33,10 @@ switch($_GET["opcion"]){
     break;
     
     case "UpdateSocio":
-        $datos=$socios->update_socio($body["ID"],$body["NOMBRE"],$body["RAZON_SOCIAL"],$body["DIRECCION"],$body["TIPO_SOCIO"],$body["CONTACTO"],$body["EMAIL"],$body["FECHA_CREADO"],$body["ESTADO"],$body["TELEFONO"]);
+        $datos=$socios->update_socio($body["NOMBRE"],$body["RAZON_SOCIAL"],$body["DIRECCION"],$body["TIPO_SOCIO"],$body["CONTACTO"],$body["EMAIL"],$body["FECHA_CREADO"],$body["ESTADO"],$body["TELEFONO"],$body["ID"]);
         echo json_encode("Socio de Negocio Actualizado");
     break;
-   
+     
     case "DeleteSocio":
         $datos=$socios->delete_socio($body["ID"]);
         echo json_encode("Socio de Negocio Eliminado");
